@@ -2,16 +2,22 @@ package com.amex.model;
 
 public class GUID {
 	
-	//Response Body Model Need to make
-	
-	private String guid;
+	private GetGUIDbyTokenResponse getGUIDbyTokenResponse;
 
-	public String getGuid() {
-		return guid;
-	}
+    public GetGUIDbyTokenResponse getGetGUIDbyTokenResponse ()
+    {
+        return getGUIDbyTokenResponse;
+    }
 
-	public void setGuid(String guid) {
-		this.guid = guid;
-	}
+    public void setGetGUIDbyTokenResponse (GetGUIDbyTokenResponse getGUIDbyTokenResponse)
+    {
+        this.getGUIDbyTokenResponse = getGUIDbyTokenResponse;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [getGUIDbyTokenResponse = "+getGUIDbyTokenResponse+"]";
+    }
 
 }
