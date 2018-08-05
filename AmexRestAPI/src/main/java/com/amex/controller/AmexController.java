@@ -21,6 +21,7 @@ public class AmexController {
 	 @GetMapping(path ="/amexsite/v1/corporate_accounts/tokens/{token_number}/", produces=MediaType.APPLICATION_JSON_VALUE)
 	 public GUID getGUIDbyToken(@PathVariable String token) {
 		 //Call service giving GUID using token
+		 
 		 System.out.println("getGUIDbyToken");
 		 GUID guidModel = amexService.getGUIDbyTokenService(token);
 		 return guidModel;

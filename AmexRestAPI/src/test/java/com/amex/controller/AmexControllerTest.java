@@ -39,6 +39,7 @@ public class AmexControllerTest {
 
 	@Test
 	public void testLocalServiceWithMockedRemoteService() throws Exception {
+		
 		restTemplate = new RestTemplate();
 		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8081/amex", String.class);
 		String expected = "SampleResponse: {\r\n" + 
