@@ -18,7 +18,6 @@ public class AmexController {
 	@Autowired
 	AmexService amexService;
 	
-
 	 @GetMapping(path ="/amexsite/v1/corporate_accounts/tokens/{token_number}", produces = MediaType.APPLICATION_JSON_VALUE)
 	 public GUID getGUIDbyToken(@PathVariable("token_number") String token) {
 		 //Call service giving GUID using token

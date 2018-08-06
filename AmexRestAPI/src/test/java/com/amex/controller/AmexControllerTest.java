@@ -30,7 +30,6 @@ public class AmexControllerTest {
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(8080);
 	
-
 	@Before
 	public void setUp() {
 		mockGUIDService();
