@@ -27,7 +27,6 @@ public class AmexControllerTest {
 
 	RestTemplate restTemplate;
 	
-
 	@Rule
 	public WireMockRule wireMockRule = new WireMockRule(8080);
 	
