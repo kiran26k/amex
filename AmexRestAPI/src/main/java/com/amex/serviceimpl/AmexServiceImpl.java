@@ -11,6 +11,7 @@ public class AmexServiceImpl implements AmexService{
 
 	public GUID getGUIDbyTokenService(String tokenId) {
 		GUID guid = new GUID();
+		System.out.println("getGUIDbyTokenService");
 		//setting static for now
 		GetGUIDbyTokenResponse getGUIDbyTokenResponse = new GetGUIDbyTokenResponse();
 		guid.setGetGUIDbyTokenResponse(getGUIDbyTokenResponse);

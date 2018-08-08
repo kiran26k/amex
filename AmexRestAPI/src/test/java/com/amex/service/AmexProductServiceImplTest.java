@@ -1,7 +1,6 @@
 package com.amex.service;
 
-import static org.junit.Assert.assertEquals;
-
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.amex.model.GetGUIDbyTokenResp;
 import com.amex.model.Response;
 import com.amex.serviceimpl.AmexProductServiceImpl;
 
@@ -28,9 +28,15 @@ public class AmexProductServiceImplTest{
 	@DirtiesContext
 	public void getGUIDbyTokenServiceTest() throws Exception {
 		Response userResponse = new Response();
+		userResponse.setGetGUIDbyTokenResp(new GetGUIDbyTokenResp());
+		userResponse.setRespCd("123");
 		System.out.println("amexProdService "+amexProdService);
-		Response resp = amexProdService.getUserInfo("12");
-		assertEquals(userResponse, resp);
+		//amexProdService.getUserInfo("kiran");
+		//System.out.println(amexProdService.getUserInfo("kiran"));
+		Response response = amexProdService.getUserInfo("kiran");
+		System.out.println(response);
+		System.out.println(userResponse);
+		Assert.assertEquals(userResponse.getGetGUIDbyTokenResp().toString(), response.getGetGUIDbyTokenResp().toString());
 	}
 	
 	

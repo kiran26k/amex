@@ -1,5 +1,6 @@
 package com.amex.controller;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -45,16 +46,20 @@ public class AmexControllerTest {
 	}
 
 	private void mockGUIDService() {	
-		WireMock.stubFor(WireMock.get(WireMock.urlMatching("/amexsite/v1/corporate_accounts/tokens/123"))
+		WireMock.stubFor(WireMock.get(WireMock.urlMatching("/amexsite/v1/corporate_accounts/tokens/3"))
 	            .willReturn(
 	                    WireMock.aResponse()
 	                            .withHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_UTF8_VALUE)
 	                            .withStatus(HttpStatus.OK.value())
 	                            .withBodyFile("GuidResp.json")
 	            ));
+		wireMockRule.start();
 	}
 	
 	
-	
+	@After
+	public void teardown() {
+		wireMockRule.stop();
+	}
 
 }
