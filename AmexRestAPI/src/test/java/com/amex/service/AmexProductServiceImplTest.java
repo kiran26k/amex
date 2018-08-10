@@ -36,7 +36,7 @@ public class AmexProductServiceImplTest{
 		Response response = amexProdService.getUserInfo("kiran");
 		System.out.println(response);
 		System.out.println(userResponse);
-		Assert.assertEquals(userResponse.getGetGUIDbyTokenResp().toString(), response.getGetGUIDbyTokenResp().toString());
+		Assert.assertEquals(userResponse, response);
 	}
 	
 	
