@@ -19,7 +19,7 @@ import com.amex.service.AmexService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
-public class AmexControllerMockMVCTest {
+public class AmexControllerMockMVCUnitTest {
 
 	@Autowired
 	MockMvc springMvc;

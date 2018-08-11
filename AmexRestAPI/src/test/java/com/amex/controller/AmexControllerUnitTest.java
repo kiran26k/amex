@@ -24,7 +24,7 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 @AutoConfigureMockMvc
 @ActiveProfiles(value = "integration")
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AmexControllerTest {
+public class AmexControllerUnitTest {
 
 	RestTemplate restTemplate;
 	
