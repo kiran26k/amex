@@ -31,8 +31,6 @@ public class AmexProductServiceImplTest{
 		userResponse.setGetGUIDbyTokenResp(new GetGUIDbyTokenResp());
 		userResponse.setRespCd("123");
 		System.out.println("amexProdService "+amexProdService);
-		//amexProdService.getUserInfo("kiran");
-		//System.out.println(amexProdService.getUserInfo("kiran"));
 		Response response = amexProdService.getUserInfo("kiran");
 		System.out.println(response);
 		System.out.println(userResponse);
