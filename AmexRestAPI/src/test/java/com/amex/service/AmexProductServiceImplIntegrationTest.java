@@ -34,7 +34,7 @@ public class AmexProductServiceImplIntegrationTest{
 		Response response = amexProdService.getUserInfo("kiran");
 		System.out.println(response);
 		System.out.println(userResponse);
-		Assert.assertEquals(userResponse, response);
+		Assert.assertEquals(userResponse.toString(), response.toString());
 	}
 	
 	
