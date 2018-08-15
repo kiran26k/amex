@@ -1,4 +1,6 @@
 Feature: Amex user sending token 
-Scenario: client makes call to GET /token
-    When the client calls /token
-    Then the client receives status code of 200
+Scenario: getGUID using token
+	Given url getuserinfo "http://localhost:8080/amexsite/v1/corporate_accounts/tokens/3"
+    And token no 3
+    When method getuserinfo GET 
+    Then status code of 200
