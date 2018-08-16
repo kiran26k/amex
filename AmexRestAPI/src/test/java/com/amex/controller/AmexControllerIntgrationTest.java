@@ -30,7 +30,7 @@ public class AmexControllerIntgrationTest {
 	@LocalServerPort
 	private int port;
 	
-	@Value("classpath:GuidResp.json")
+	@Value("classpath:mockModel/GuidResp.json")
 	Resource resource;
 	
 	TestRestTemplate restTemplate = new TestRestTemplate();
@@ -59,7 +59,6 @@ public class AmexControllerIntgrationTest {
 	}
 	
 	private String getJsonModel() throws IOException {
-		File json =resource.getFile();
 		ObjectMapper mapperObj = new ObjectMapper();
 		Object readValue = mapperObj.readValue(resource.getInputStream(), Object.class);
 		return mapperObj.writeValueAsString(readValue);

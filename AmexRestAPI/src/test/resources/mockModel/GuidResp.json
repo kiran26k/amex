@@ -1,0 +1,10 @@
+{
+	"getGUIDbyTokenResponse": {
+		"Response": {
+			"RespCd": "0",
+			"getGUIDbyTokenResp": {
+				"GUID": "e82662gvebdjdi987277"
+			}
+		}
+	}
+}
