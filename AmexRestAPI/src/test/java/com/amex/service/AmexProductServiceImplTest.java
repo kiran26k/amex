@@ -1,45 +1,50 @@
 package com.amex.service;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.integration.config.EnableIntegration;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.amex.model.GetGUIDbyTokenResp;
-import com.amex.model.Response;
-import com.amex.serviceimpl.AmexProductServiceImpl;
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = AmexProductServiceImpl.class)
-@EnableAutoConfiguration
-public class AmexProductServiceImplTest{
-	
-	
-	
+@ContextConfiguration
+public class AmexProductServiceImplTest {
+
 	@Autowired
-	AmexProductService amexProdService;
-	
-	
+	@Qualifier("getUserInfo.input")
+	private MessageChannel getUserInfoChannel;
+
+
 	@Test
-	@DirtiesContext
-	public void getGUIDbyTokenServiceTest() throws Exception {
-		Response userResponse = new Response();
-		userResponse.setGetGUIDbyTokenResp(new GetGUIDbyTokenResp());
-		userResponse.setRespCd("123");
-		System.out.println("amexProdService "+amexProdService);
-		Response response = amexProdService.getUserInfo("kiran");
-		System.out.println(response);
-		System.out.println(userResponse);
-		Assert.assertEquals(userResponse, response);
+	@SuppressWarnings("unchecked")
+	public void getUserInfo() throws Exception {	
+		System.out.println("getUserInfo.input");
 	}
 	
 	
+	@Configuration
+    @EnableIntegration
+    public static class Config {
 
+        @Bean
+        public IntegrationFlow fileNotFoundFlow() {
+            return IntegrationFlows.from("getUserInfo.input")
+                    .<Object>handle((payload, headers) -> {
+                        System.out.println(payload);
+                        return payload;
+                    }, e -> e.id("getUserInfo.ouput"))
+                    .channel("getUserInfo.input")
+                    .get();
+        }
+
+    }
 	
-
+	
 }
-
